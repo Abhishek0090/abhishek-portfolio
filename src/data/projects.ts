@@ -20,34 +20,34 @@ export const projects: Project[] = [
     slug: "railbook",
     index: "01",
     name: "RailBook",
-    tagline: "Train booking built for the Tatkal rush",
+    tagline: "Train booking where two people can't get the same seat",
     category: "Full-stack platform",
     year: "2026",
     accent: "#8b7bff",
     summary:
-      "A train ticket booking platform with a concurrency-safe seat reservation flow, a virtual waiting room for Tatkal windows, Razorpay payments and a voice or chat booking assistant.",
-    stack: ["Next.js", "NestJS", "Postgres", "Redis", "Prisma", "Docker", "Kafka", "Elasticsearch", "Kubernetes", "Claude API"],
+      "An IRCTC-style train ticket app: search trains, compare classes and dates, add passengers, pay and get a ticket with a PNR. Built on Next.js with a PostgreSQL schema in Drizzle ORM and a seat lock that stops two buyers from taking the same berth.",
+    stack: ["Next.js", "React 19", "TypeScript", "PostgreSQL", "Drizzle ORM", "Redis", "Redlock", "Tailwind CSS"],
     highlights: [
       {
         title: "Seats that can't double-book",
-        body: "Seat pools, timed holds and Redlock keep two buyers from getting the same berth when thousands hit the same train at 10:00.",
+        body: "Every booking locks train, date, class and seat first. Redis Redlock in production, an in-memory lock in development, both behind one interface. A test fires two requests at once and checks that only one gets the seat.",
       },
       {
-        title: "Virtual waiting room",
-        body: "Tatkal traffic queues and is admitted in batches, with rate limiting, so the booking service stays up during the spike.",
+        title: "Safe to retry",
+        body: "The payment transaction ID is unique, so a retried request returns the existing booking instead of booking twice. The booking and its transaction row are written in one database transaction.",
       },
       {
-        title: "An assistant that can't book",
-        body: "The Claude assistant reads anything but changes nothing. Bookings and cancellations come back as drafts the user confirms through the normal guarded flow.",
+        title: "The whole passenger journey",
+        body: "Train search, seat availability by class and date, passenger details, booking summary, e-ticket, my trips, PNR status, live running status and the train schedule with a station timeline.",
       },
     ],
     details: [
-      "NestJS modular monolith: booking, locking, payment, search, notification, queue, tatkal and auth modules.",
-      "Search on Postgres trigram indexes, or Elasticsearch when it is configured.",
-      "Notifications through Redis Streams or Kafka, fed by an outbox relay.",
-      "JWT with refresh rotation and mobile OTP login.",
-      "Kubernetes manifests with an autoscaler scoped to the booking deployment.",
-      "A full mock mode so the six frontend views run with no infrastructure at all.",
+      "PostgreSQL schema in Drizzle ORM: users, stations, trains, routes, coaches, seats, bookings and transactions, with foreign keys and unique indexes on PNR and payment ID.",
+      "When a seat is already held, the API answers 409 and offers RAC or waitlist instead of failing.",
+      "Locks expire after 10 minutes, so a crashed process can't hold a seat forever.",
+      "10-digit PNRs generated with Node's crypto randomInt.",
+      "Redis is optional: without REDIS_URL the app falls back to the in-process lock.",
+      "Station search with a searchable dropdown, a calendar date picker, toasts and a top loading bar.",
     ],
   },
   {
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     accent: "#ff7ab6",
     summary:
       "WhatsApp-style messaging plus couple features: voice notes, view-once media, WebRTC calls, nudges, a question of the day and a shared bucket list. Installable, with push notifications.",
-    stack: ["Next.js", "Supabase", "Postgres", "Realtime", "WebRTC", "Web Push", "PWA", "Tailwind CSS"],
+    stack: ["Next.js", "Supabase", "PostgreSQL", "Realtime", "WebRTC", "Web Push", "PWA", "Tailwind CSS"],
     highlights: [
       {
         title: "Realtime with a safety net",

@@ -20,11 +20,10 @@ export const profile = {
     "TypeScript",
     "JavaScript",
     "Node.js",
-    "NestJS",
     "MongoDB",
     "PostgreSQL",
     "Redis",
-    "Prisma",
+    "Drizzle ORM",
     "Docker",
     "Tailwind CSS",
     "Supabase",
@@ -58,7 +57,7 @@ export const capabilities = [
   },
   {
     title: "Backends",
-    body: "Node.js and NestJS APIs on MongoDB or PostgreSQL, Prisma, Redis and Redlock, queues with the outbox pattern, payment webhooks.",
+    body: "Node.js APIs on MongoDB or PostgreSQL, Drizzle ORM, Redis and Redlock seat locks, idempotent payment-backed bookings in one transaction.",
   },
   {
     title: "PWA and performance",
@@ -66,10 +65,10 @@ export const capabilities = [
   },
   {
     title: "AI features",
-    body: "Claude with tool use, streamed responses, and assistants that propose changes instead of making them.",
+    body: "Claude API integration for translating code between languages, with the key kept on the server.",
   },
   {
     title: "Docker and delivery",
-    body: "Docker and docker-compose for local stacks, Kubernetes manifests, deploys to Vercel and Render.",
+    body: "Docker for local databases and services, static exports, deploys to Vercel and Render.",
   },
 ];

@@ -23,21 +23,21 @@ function RailBook() {
       <div className="pv-rail-ticket">
         <div className="pv-rail-route">
           <div>
-            <b>NDLS</b>
-            <small>New Delhi</small>
+            <b>SLN</b>
+            <small>Sultanpur</small>
           </div>
           <div className="pv-rail-line">
             <span className="pv-rail-train" />
           </div>
           <div>
-            <b>HWH</b>
-            <small>Howrah</small>
+            <b>LTT</b>
+            <small>Mumbai LTT</small>
           </div>
         </div>
         <div className="pv-rail-meta mono">
-          <span>12302 RAJDHANI</span>
-          <span>AC 2 TIER</span>
-          <span className="pv-tag">TATKAL</span>
+          <span>22184 SAKET EXP</span>
+          <span>3A</span>
+          <span className="pv-tag">CONFIRMED</span>
         </div>
         <div className="pv-rail-seats">
           {seats.map((s, i) => (
@@ -46,7 +46,7 @@ function RailBook() {
         </div>
       </div>
       <div className="pv-rail-queue mono">
-        <span className="status-dot" /> waiting room <b>#1,284</b>
+        <span className="status-dot" /> seat lock held <b>09:58</b>
         <span className="pv-rail-queue-bar">
           <i />
         </span>
