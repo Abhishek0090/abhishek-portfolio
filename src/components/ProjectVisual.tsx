@@ -186,25 +186,47 @@ function Sevyn() {
   );
 }
 
+// Three arcade screens, one per game: dusk city run, night highway drive, daytime rail ride.
 function Barricade() {
   return (
     <div className="pv pv-run">
-      <div className="pv-sky" />
-      <div className="pv-road">
-        <div className="pv-lanes" />
-        <span className="pv-obstacle o1" />
-        <span className="pv-obstacle o2" />
-        <span className="pv-coin c1" />
-        <span className="pv-coin c2" />
+      <div className="pv-arcade-title mono">
+        BARRICADE <b>ARCADE</b>
       </div>
-      <span className="pv-runner" />
-      <span className="pv-paper p1" />
-      <span className="pv-paper p2" />
-      <div className="pv-hud mono">
-        <span>
-          1,204<small>m</small>
-        </span>
-        <span>♥ ♥</span>
+      <div className="pv-screens">
+        <div className="pv-screen s-run">
+          <div className="pv-sky" />
+          <div className="pv-road">
+            <div className="pv-lanes" />
+            <span className="pv-obstacle o1" />
+            <span className="pv-coin c1" />
+          </div>
+          <span className="pv-runner" />
+          <span className="pv-paper p1" />
+          <span className="pv-screen-tag mono">01 RUN</span>
+        </div>
+        <div className="pv-screen s-drive">
+          <span className="pv-moon" />
+          <div className="pv-road">
+            <div className="pv-lanes" />
+            <span className="pv-car c1" />
+            <span className="pv-car c2" />
+          </div>
+          <span className="pv-lamp l1" />
+          <span className="pv-lamp l2" />
+          <span className="pv-taxi" />
+          <span className="pv-screen-tag mono">02 DRIVE</span>
+        </div>
+        <div className="pv-screen s-rail">
+          <span className="pv-sun" />
+          <span className="pv-hills" />
+          <div className="pv-road">
+            <div className="pv-sleepers" />
+            <span className="pv-coach" />
+          </div>
+          <span className="pv-trolley" />
+          <span className="pv-screen-tag mono">03 RAIL</span>
+        </div>
       </div>
     </div>
   );
